@@ -9,11 +9,11 @@
         начать цепочку перемен. netology.ru </string>
     <string name="title" translatable="false">Нетология. Университет интернет-профессий</string>
     <string name="subtitle" translatable="false">23 ноября 2020 г.</string>
-    <string name="likes">likes</string>
-    <string name="_12">12</string>
-    <string name="share">share</string>
-    <string name="_20">20</string>
-    <string name="views">Views</string>
-    <string name="_5k">5K</string>
+    <string name="likes" translatable="false">likes</string>
+    <string name="_12" translatable="false">12</string>
+    <string name="share" translatable="false">share</string>
+    <string name="_20" translatable="false">20</string>
+    <string name="views" translatable="false">Views</string>
+    <string name="_5k" translatable="false">5K</string>
 
 </resources>
