@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/common_spacing"
-    tools:context=".MainActivity"
-    tools:menu="@menu/menu">
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/avatar"
@@ -67,7 +66,6 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="avatar,published,menu" />
 
-
     <TextView
         android:id="@+id/text"
         android:layout_width="0dp"
@@ -82,74 +80,72 @@
         tools:text="@sample/posts.json/data/content" />
 
     <ImageView
-        android:id="@+id/imageView_likes"
+        android:id="@+id/imageViewLikes"
         android:layout_width="@dimen/posts_avatar_size"
         android:layout_height="@dimen/posts_avatar_size"
         android:layout_marginStart="@dimen/common_spacing"
         android:layout_marginTop="@dimen/common_spacing"
         android:contentDescription="@string/description_likes"
-        app:layout_constraintEnd_toStartOf="@+id/textView_likes"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text"
         app:srcCompat="@drawable/likes" />
 
     <TextView
-        android:id="@+id/textView_likes"
+        android:id="@+id/textViewLikes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView_likes"
-        app:layout_constraintEnd_toStartOf="@+id/imageView_share"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewLikes"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewShare"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView_likes"
-        app:layout_constraintTop_toTopOf="@+id/imageView_likes"
+        app:layout_constraintStart_toEndOf="@+id/imageViewLikes"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLikes"
         tools:text="@sample/posts.json/data/number" />
 
     <ImageView
-        android:id="@+id/imageView_share"
+        android:id="@+id/imageViewShare"
         android:layout_width="@dimen/posts_avatar_size"
         android:layout_height="@dimen/posts_avatar_size"
         android:layout_marginStart="32dp"
         android:contentDescription="@string/description_share"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_likes"
-        app:layout_constraintStart_toEndOf="@+id/textView_likes"
-        app:layout_constraintTop_toTopOf="@+id/textView_likes"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewLikes"
+        app:layout_constraintStart_toEndOf="@+id/textViewLikes"
+        app:layout_constraintTop_toTopOf="@+id/textViewLikes"
         app:srcCompat="@drawable/share" />
 
     <TextView
-        android:id="@+id/textView_share"
+        android:id="@+id/textViewShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView_share"
-        app:layout_constraintStart_toEndOf="@+id/imageView_share"
-        app:layout_constraintTop_toTopOf="@+id/imageView_share"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewShare"
+        app:layout_constraintStart_toEndOf="@+id/imageViewShare"
+        app:layout_constraintTop_toTopOf="@+id/imageViewShare"
         tools:text="@sample/posts.json/data/number" />
 
     <ImageView
-        android:id="@+id/imageView_views"
+        android:id="@+id/imageViewViews"
         android:layout_width="@dimen/posts_avatar_size"
         android:layout_height="@dimen/posts_avatar_size"
         android:layout_marginEnd="@dimen/common_spacing"
         android:contentDescription="@string/description_views"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView_share"
-        app:layout_constraintEnd_toStartOf="@+id/textView_views"
-        app:layout_constraintTop_toTopOf="@+id/imageView_share"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewShare"
+        app:layout_constraintEnd_toStartOf="@+id/textViewViews"
+        app:layout_constraintTop_toTopOf="@+id/imageViewShare"
         app:srcCompat="@drawable/views" />
 
     <TextView
-        android:id="@+id/textView_views"
+        android:id="@+id/textViewViews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/common_spacing"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView_views"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewViews"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView_views"
+        app:layout_constraintTop_toTopOf="@+id/imageViewViews"
         tools:text="@sample/posts.json/data/number" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

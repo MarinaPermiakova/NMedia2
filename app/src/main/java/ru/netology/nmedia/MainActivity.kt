@@ -1,15 +1,8 @@
 package ru.netology.nmedia
 
-import android.icu.text.CompactDecimalFormat
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import ru.netology.nmedia.databinding.ActivityMainBinding
-import java.util.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,11 +10,8 @@ class MainActivity : AppCompatActivity() {
     private var likes = 0
     private var views = 0
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -42,53 +32,63 @@ class MainActivity : AppCompatActivity() {
             published.text = post.published
             text.text = post.content
             if (post.likedByMe) {
-                imageView_likes?.setImageResource(R.drawable.likes)
+                imageViewLikes.setImageResource(R.drawable.likes)
             }
 
-            root.setOnClickListener {
-                Log.d("stuff", "root")
-            }
-
-            menu.setOnClickListener {
-                Log.d("stuff", "menu")
-            }
-
-            avatar.setOnClickListener {
-                Log.d("stuff", "avatar")
-            }
-
-            imageView_likes?.setOnClickListener {
+            imageViewLikes.setOnClickListener {
                 post.likedByMe = !post.likedByMe
 
                 if (post.likedByMe) {
-                    imageView_likes?.setImageResource(R.drawable.likes_liked)
+                    imageViewLikes.setImageResource(R.drawable.likes_liked)
                     likes++
                 } else {
-                    imageView_likes?.setImageResource(R.drawable.likes)
+                    imageViewLikes.setImageResource(R.drawable.likes)
                     likes--
                 }
 
-                textView_likes.text = CompactDecimalFormat.getInstance(
-                    Locale.ENGLISH,
-                    CompactDecimalFormat.CompactStyle.SHORT
-                ).format(likes)
+                textViewLikes.text = formatNumber(likes)
             }
 
             imageViewShare.setOnClickListener {
                 shares++
-                textViewShare.text = CompactDecimalFormat.getInstance(
-                    Locale.ENGLISH,
-                    CompactDecimalFormat.CompactStyle.SHORT
-                ).format(shares)
+                textViewShare.text = formatNumber(shares)
             }
 
             imageViewViews.setOnClickListener {
                 views++
-                textViewViews.text = CompactDecimalFormat.getInstance(
-                    Locale.ENGLISH,
-                    CompactDecimalFormat.CompactStyle.SHORT
-                ).format(views)
+                textViewViews.text = formatNumber(views)
             }
         }
+    }
+
+    private fun formatNumber(number: Int): String {
+        val suffixes = charArrayOf('k', 'm', 'g')
+        if (number < 1000) {
+            return java.lang.String.valueOf(number)
+        }
+
+        val string = java.lang.String.valueOf(number)
+
+        // разрядность числа
+        val magnitude = (string.length - 1) / 3
+
+        // количество цифр до суффикса
+        val digits = (string.length - 1) % 3 + 1
+
+        val value = CharArray(4)
+        for (i in 0 until digits) {
+            value[i] = string[i]
+        }
+        var valueLength = digits
+
+        // добавление точки и числа
+        if (digits == 1 && string[1] != '0') {
+            value[valueLength++] = '.'
+            value[valueLength++] = string[1]
+        }
+
+        // добавление суффикса
+        value[valueLength++] = suffixes[magnitude - 1]
+        return String(value)
     }
 }
