@@ -1,19 +1,9 @@
 <resources>
     <string name="app_name">NMedia</string>
     <string name="nmedia">NMedia!</string>
-    <string name="text" translatable="false">Когда-то Нетология начиналась с интенсивов
-        по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению.
-        Мы меняемся сами и помогаем меняться студентам: расти от новичков до уверенных профессионалов.
-        Но самое важное остаётся — наша вера в то, что в каждом заложена сила, которая заставляет
-        хотеть больше, целиться выше, бежать быстрее. А наша миссия — помочь выбрать путь и
-        начать цепочку перемен. netology.ru </string>
-    <string name="title" translatable="false">Нетология. Университет интернет-профессий</string>
-    <string name="subtitle" translatable="false">23 ноября 2020 г.</string>
-    <string name="likes" translatable="false">likes</string>
-    <string name="_12" translatable="false">12</string>
-    <string name="share" translatable="false">share</string>
-    <string name="_20" translatable="false">20</string>
-    <string name="views" translatable="false">Views</string>
-    <string name="_5k" translatable="false">5K</string>
-
+    <string name="description_likes" translatable="false">likes</string>
+    <string name="description_share" translatable="false">share</string>
+    <string name="description_views" translatable="false">Views</string>
+    <string name="description_post_author_avatar" translatable="false">avatar</string>
+    <string name="description_menu" translatable="false">menu</string>
 </resources>
