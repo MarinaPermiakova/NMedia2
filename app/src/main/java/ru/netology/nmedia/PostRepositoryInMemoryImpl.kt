@@ -23,53 +23,20 @@ class PostRepositoryInMemoryImpl : PostRepository {
     private val data = MutableLiveData(post)
 
     override fun get(): LiveData<Post> = data
+
     override fun like() {
         post = post.copy(likedByMe = !post.likedByMe)
+        post = post.copy(likes = if (post.likedByMe) post.likes + 1 else post.likes - 1)
         data.value = post
     }
 
-    override fun liked(): String {
-        if (post.likedByMe) post.likes++ else post.likes--
-        return formatNumber(post.likes)
+    override fun shared() {
+        post = post.copy(shares = post.shares + 1)
+        data.value = post
     }
 
-    override fun shared(): String {
-        return formatNumber(post.shares++)
+    override fun viewed() {
+        post = post.copy(views = post.views + 1)
+        data.value = post
     }
-
-    override fun viewed(): String {
-        return formatNumber(post.views++)
-    }
-
-    private fun formatNumber(number: Int): String {
-        val suffixes = charArrayOf('k', 'm', 'g')
-        if (number < 1000) {
-            return java.lang.String.valueOf(number)
-        }
-
-        val string = java.lang.String.valueOf(number)
-
-        // разрядность числа
-        val magnitude = (string.length - 1) / 3
-
-        // количество цифр до суффикса
-        val digits = (string.length - 1) % 3 + 1
-
-        val value = CharArray(4)
-        for (i in 0 until digits) {
-            value[i] = string[i]
-        }
-        var valueLength = digits
-
-        // добавление точки и числа
-        if (digits == 1 && string[1] != '0') {
-            value[valueLength++] = '.'
-            value[valueLength++] = string[1]
-        }
-
-        // добавление суффикса
-        value[valueLength++] = suffixes[magnitude - 1]
-        return String(value)
-    }
-
 }
