@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/common_spacing">
 
+
     <TextView
         android:id="@+id/author"
         android:layout_width="0dp"
@@ -14,9 +15,8 @@
         android:ellipsize="end"
         android:singleLine="true"
         android:textSize="24sp"
-
         app:layout_constraintBottom_toTopOf="@+id/published"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
@@ -27,23 +27,33 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="@dimen/common_spacing"
 
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@id/header"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/author"
         tools:text="@sample/posts.json/data/published" />
 
+
+    <ImageButton
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu"
+        android:contentDescription="@string/description_menu"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/common_spacing" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="72dp" />
 

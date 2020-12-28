@@ -6,4 +6,10 @@
     <string name="description_views" translatable="false">Views</string>
     <string name="description_post_author_avatar" translatable="false">avatar</string>
     <string name="description_menu" translatable="false">menu</string>
+    <string name="edit">Edit</string>
+    <string name="new_post_button">New post button</string>
+    <string name="remove">Delete</string>
+    <string name="new_post_text">New post</string>
+    <string name="error_empty_content">Ошибка: пустое сообщение</string>
+    <string name="cancel">Отменить редактирование</string>
 </resources>
